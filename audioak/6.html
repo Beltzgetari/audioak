@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bideoarekin lan egiten</title>
+
+  </head>
+  <body>
+   
+    <audio id="player" controls> </audio>
+    <div id="formatua"></div>
+    <script>
+
+      window.onload = () =>{
+        let textua = document.getElementById("formatua")
+        let audioak =["audio1.mp3", "audio1.ogg", "audio1.wav"]
+        let audioplayer = document.getElementById("player")
+        let pos = 0
+
+        player.src = '/audioak/denak/' + audioak[pos]
+
+        audioplayer.addEventListener("loadeddata", () =>{ 
+           textua.innerHTML = player.currentSrc.split(".")[4];;
+        })
+        audioplayer.addEventListener('ended', () =>{
+            pos++
+            player.src = '/audioak/denak/' + audioak[pos % audioak.length]
+            audioplayer.play()
+        })
+      }
+    </script>
+    
+  </body>
+</html>

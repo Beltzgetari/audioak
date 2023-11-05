@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bideoarekin lan egiten</title>
+
+  </head>
+  <body>
+
+    <audio id="player"> </audio>
+    <button id = "play"> Play</button>
+    <button id = "stop"> Stop</button>
+    <button id = "High volume"> Volume +</button>
+    <button id = "low volume"> Volume -</button>
+    <script>
+
+      window.onload = () =>{
+        let audioa ="audio1.mp3"
+        let audioplayer = document.getElementById("player")
+
+        player.src = '/audioak/mp3/'+audioa
+
+        let play = document.getElementById("play")
+        let stop = document.getElementById("stop")
+        let plus = document.getElementById("High volume")
+        let minus = document.getElementById("low volume")
+
+        stop.disabled = true
+
+        audioplayer.addEventListener('ended', () =>{
+                stop.disabled = true
+                play.disabled = false
+        })
+        
+        play.onclick = () =>{
+            player.play()
+            stop.disabled = false
+            play.disabled = true
+        }
+
+        stop.onclick = () =>{
+            player.pause()
+            stop.disabled = true
+            play.disabled = false
+        }
+        plus.onclick = () =>{
+            if(player.volume < 1 && player.volume >= 0){
+                player.volume+=0.2
+            }
+        }
+        minus.onclick = () =>{
+            if(player.volume <= 1 && player.volume > 0){
+                player.volume=  Math.abs(player.volume - 0.2)
+            }
+        }
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bideoarekin lan egiten</title>
+
+  </head>
+  <body>
+
+    <audio id="player" controls> </audio>
+    <script>
+
+      window.onload = () =>{
+        let audioak =["audio1.mp3", "audio2.mp3", "audio3.mp3"]
+        let audioplayer = document.getElementById("player")
+        let pos = 0
+
+        player.src = '/audioak/mp3/' + audioak[pos]
+        audioplayer.addEventListener('ended', () =>{
+            pos++
+            player.src = '/audioak/mp3/' + audioak[pos % audioak.length]
+            audioplayer.play()
+        })
+      }
+    </script>
+  </body>
+</html>
